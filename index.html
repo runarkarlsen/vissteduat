@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visste du at... - Tema-generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    button:hover {
+      background-color: #444;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2rem;
+    }
+    li {
+      background-color: #2a2a2a;
+      margin: 0.5rem auto;
+      padding: 1rem;
+      max-width: 500px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Visste du at... – Tema-generator ✨</h1>
+  <button onclick="trekkTemaer()">Trykk her for å få 3 tilfeldige temaer</button>
+  <ul id="resultat"></ul>
+
+  <script>
+    const temaer = [
+      "Nettverksprotokoll", "HTTP/HTTPS", "FTP", "SMTP", "DNS", "DHCP", "SSH", "TCP/IP", "POP3/IMAP",
+      "UDP", "ARP", "Telnet", "SNMP", "ICMP", "NTP", "RIP/OSPF", "Feilsøkingskommandoer", 
+      "Hvordan en datamaskin og telefon er bygd opp", "Bits og byte", "Hjemmenettverk", 
+      "Internettets historie", "Servere", "Skytjenester", "Virtualisering", "OSI/TCP-IP-modellen", 
+      "Datadomener", "Feilsøking", "Digitale trusler", "Personvern", "HMS i IT", 
+      "Backup for små bedrifter", "VLAN", "Bærekraft og IT"
+    ];
+
+    function trekkTemaer() {
+      const kopi = [...temaer];
+      const valgt = [];
+      for (let i = 0; i < 3; i++) {
+        const index = Math.floor(Math.random() * kopi.length);
+        valgt.push(kopi.splice(index, 1)[0]);
+      }
+      document.getElementById("resultat").innerHTML = valgt.map(t => `<li>${t}</li>`).join('');
+    }
+  </script>
+</body>
+</html>
