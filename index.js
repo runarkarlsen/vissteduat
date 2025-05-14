@@ -5,7 +5,8 @@ const temaer = [
   "Hvordan en datamaskin og telefon er bygd opp", "Bits og byte", "Hjemmenettverk", 
   "Internettets historie", "Servere", "Skytjenester", "Virtualisering", "OSI/TCP-IP-modellen", 
   "Datadomener", "Feilsøking", "Digitale trusler", "Personvern", "HMS i IT", 
-  "Backup for små bedrifter", "VLAN", "Bærekraft og IT"
+  "Backup for små bedrifter", "VLAN", "Bærekraft og IT", "Frontend - backend", "KI i hverdagen", "Algortime", "Teknologi demokrati og samfunn", "Maskinlæring", 
+  "Åpen kildekode og proprietær programvare", "Kryptering", "Digital tvilling", "Økt inkludering og tilgjengelighet"
 ];
 
 let tilgjengeligeTemaer = [...temaer];
