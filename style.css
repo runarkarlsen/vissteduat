@@ -35,4 +35,16 @@ li {
   max-width: 500px;
   border-radius: 6px;
 }
-
+.tema-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+.tema-grid div {
+  background-color: #2a2a2a;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
