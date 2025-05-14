@@ -43,6 +43,7 @@ const temaer = [
   "Digitale tvillinger",
   "Tilgjengelighet og inkludering",
   "Edge computing",
+  "Internet of Things",
 ];
 
 let bruktTemaer = [];
