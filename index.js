@@ -34,7 +34,7 @@ const temaer = [
   "VLAN",
   "Bærekraft og IT",
   "Frontend og backend",
-  "Kunstig intelligens (AI)",
+  "Kunstig intelligens (KI)",
   "Algoritmer",
   "Teknologi og demokrati",
   "Maskinlæring",
@@ -44,6 +44,7 @@ const temaer = [
   "Tilgjengelighet og inkludering",
   "Edge computing",
   "Internet of Things",
+  "APIer",
 ];
 
 let bruktTemaer = [];
@@ -65,6 +66,7 @@ function trekkTemaer() {
     const tema = tilgjengeligeTemaer[index];
     valgt.push(tema);
     bruktTemaer.push(tema);
+    tilgjengeligeTemaer.splice(index, 1);
   }
 
   resultatEl.innerHTML = valgt.map((t) => `<li>${t}</li>`).join("");
