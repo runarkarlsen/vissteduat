@@ -1,22 +1,28 @@
 <!-- index.html -->
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="no">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visste du at... - Tema-generator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>✨ Visste du at... – Tema-generator ✨</h1>
-  <button onclick="trekkTemaer()">Trykk her for å få 3 tilfeldige temaer</button>
-  <ul id="resultat"></ul>
-  <p id="sluttmelding" style="display:none; font-weight: bold; margin-top: 1rem;">Alle temaer er brukt! Trykk F5 for å starte på nytt.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visste du at... - Tema-generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>✨ Visste du at... – Tema-generator ✨</h1>
+    <button onclick="trekkTemaer()">
+      Trykk her for å få 3 tilfeldige temaer
+    </button>
+    <ul id="resultat"></ul>
+    <p
+      id="sluttmelding"
+      style="display: none; font-weight: bold; margin-top: 1rem"
+    >
+      Alle temaer er brukt! Trykk F5 for å starte på nytt.
+    </p>
 
-  <h2>Tilgjengelige temaer:</h2>
-  <div id="temaListe" class="tema-grid"></div>
+    <h2>Tilgjengelige temaer:</h2>
+    <div id="temaListe" class="tema-grid"></div>
 
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
