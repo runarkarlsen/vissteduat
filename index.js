@@ -1,4 +1,3 @@
-// index.js
 const temaer = [
   "Nettverksprotokoll",
   "HTTP/HTTPS",
@@ -49,6 +48,27 @@ const temaer = [
 
 let bruktTemaer = [];
 
+const elever = [
+  "Tobias",
+  "Oskar",
+  "Lukas",
+  "Andreas",
+  "Erik",
+  "Lars",
+  "Max",
+  "Patrik",
+  "Alex",
+  "William",
+  "Damian",
+  "Gabriel",
+  "Armandas",
+  "Sofiia",
+  "Sarawut",
+];
+
+let currentStudentIndex = 0;
+const assignments = {};
+
 function trekkTemaer() {
   const resultatEl = document.getElementById("resultat");
   const meldingEl = document.getElementById("sluttmelding");
@@ -72,6 +92,77 @@ function trekkTemaer() {
   resultatEl.innerHTML = valgt.map((t) => `<li>${t}</li>`).join("");
   visTilgjengeligeTemaer();
 }
+
+function assignNextStudent() {
+  const meldingEl = document.getElementById("sluttmelding");
+  const currentStudentEl = document.getElementById("currentStudent");
+  const currentTopicsEl = document.getElementById("currentTopics");
+  const assignmentsEl = document.getElementById("studentAssignments");
+  const assignButton = document.getElementById("assignButton");
+
+  if (currentStudentIndex >= elever.length) {
+    alert(
+      "Alle elever er tatt. Trykk F5 eller Enter for å starte tildeling helt på nytt."
+    );
+    currentStudentEl.innerHTML = "";
+    currentTopicsEl.innerHTML = "";
+    assignButton.disabled = true;
+    return;
+  }
+
+  const tilgjengeligeTemaer = temaer.filter((t) => !bruktTemaer.includes(t));
+
+  if (tilgjengeligeTemaer.length < 3) {
+    alert(
+      "Ikke nok temaer til å tildele 3 til hver elev. Trykk F5 for å starte på nytt."
+    );
+    assignButton.disabled = true;
+    return;
+  }
+
+  const valgt = [];
+  for (let i = 0; i < 3; i++) {
+    const index = Math.floor(Math.random() * tilgjengeligeTemaer.length);
+    const tema = tilgjengeligeTemaer[index];
+    valgt.push(tema);
+    bruktTemaer.push(tema);
+    tilgjengeligeTemaer.splice(index, 1);
+  }
+
+  const elev = elever[currentStudentIndex];
+  assignments[elev] = valgt;
+
+  // Display current student and topics
+  currentStudentEl.innerHTML = `<h3>Elev: ${elev}</h3>`;
+  currentTopicsEl.innerHTML = `<ul>${valgt
+    .map((t) => `<li>${t}</li>`)
+    .join("")}</ul>`;
+
+  // Append to accumulated assignments list
+  const elevDiv = document.createElement("div");
+  elevDiv.classList.add("elev-assignments");
+  elevDiv.innerHTML = `<h4>${elev}</h4><ul>${valgt
+    .map((t) => `<li>${t}</li>`)
+    .join("")}</ul>`;
+  assignmentsEl.appendChild(elevDiv);
+
+  currentStudentIndex++;
+  visTilgjengeligeTemaer();
+}
+
+window.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    const assignButton = document.getElementById("assignButton");
+    if (!assignButton.disabled) {
+      assignNextStudent();
+    } else {
+      location.reload();
+    }
+  }
+  if (event.key === "F5") {
+    location.reload();
+  }
+});
 
 function visTilgjengeligeTemaer() {
   const liste = document.getElementById("temaListe");
