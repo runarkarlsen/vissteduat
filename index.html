@@ -9,9 +9,14 @@
   </head>
   <body>
     <h1>✨ Visste du at... – Tema-generator ✨</h1>
-    <button onclick="trekkTemaer()">
-      Trykk her for å få 3 tilfeldige temaer
+
+    <div id="currentStudent" style="margin-bottom: 1rem"></div>
+    <div id="currentTopics" style="margin-bottom: 1rem"></div>
+
+    <button id="assignButton" onclick="assignNextStudent()">
+      Tildel 3 temaer til neste elev
     </button>
+
     <ul id="resultat"></ul>
     <p
       id="sluttmelding"
@@ -22,6 +27,9 @@
 
     <h2>Tilgjengelige temaer:</h2>
     <div id="temaListe" class="tema-grid"></div>
+
+    <h2>Tildelte temaer per elev:</h2>
+    <div id="studentAssignments"></div>
 
     <script src="index.js"></script>
   </body>
