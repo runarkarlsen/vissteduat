@@ -1,4 +1,3 @@
-
 const temaer = [
   "Nettverksprotokoll",
   "HTTP/HTTPS",
@@ -133,8 +132,8 @@ function assignNextStudent() {
   const elev = elever[currentStudentIndex];
   assignments[elev] = valgt;
 
-  // Display current student and topics
-  currentStudentEl.innerHTML = `<h3>Elev: ${elev}</h3>`;
+  // Display current student and topics with separate spans for label and name
+  currentStudentEl.innerHTML = `<h3><span class="label">Elev: </span><span class="name">${elev}</span></h3>`;
   currentTopicsEl.innerHTML = `<ul>${valgt
     .map((t) => `<li>${t}</li>`)
     .join("")}</ul>`;
@@ -151,17 +150,42 @@ function assignNextStudent() {
   visTilgjengeligeTemaer();
 }
 
+function resetAssignments() {
+  const currentStudentEl = document.getElementById("currentStudent");
+  const currentTopicsEl = document.getElementById("currentTopics");
+  const assignmentsEl = document.getElementById("studentAssignments");
+  const resultatEl = document.getElementById("resultat");
+  const meldingEl = document.getElementById("sluttmelding");
+  const assignButton = document.getElementById("assignButton");
+
+  currentStudentEl.innerHTML = "";
+  currentTopicsEl.innerHTML = "";
+  assignmentsEl.innerHTML = "";
+  resultatEl.innerHTML = "";
+  meldingEl.style.display = "none";
+
+  bruktTemaer = [];
+  currentStudentIndex = 0;
+  for (const key in assignments) {
+    delete assignments[key];
+  }
+  assignButton.disabled = false;
+
+  alert("Tildelinger er nullstilt. Du kan starte på nytt.");
+}
+
 window.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     const assignButton = document.getElementById("assignButton");
     if (!assignButton.disabled) {
       assignNextStudent();
     } else {
-      location.reload();
+      resetAssignments();
     }
   }
   if (event.key === "F5") {
-    location.reload();
+    event.preventDefault();
+    resetAssignments();
   }
 });
 
