@@ -108,7 +108,7 @@ li {
 }
 
 .tema-grid div {
-  background-color: rgba(42, 42, 42, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
   border-radius: 6px;
   word-break: break-word;
