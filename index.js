@@ -40,8 +40,7 @@ const temaer = [
   "Åpen kildekode vs proprietær",
   "Kryptering",
   "Digitale tvillinger",
-  "Tilgjengelighet og inkludering",
-  "Edge computing",
+   "Edge computing",
   "Internet of Things",
   "APIer",
 ];
