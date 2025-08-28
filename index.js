@@ -60,10 +60,9 @@ const elever = [
   "Alex",
   "William",
   "Damian",
-  "Gabriel",
+  "LeonM",
   "Armandas",
-  "Sofiia",
-  "Sarawut",
+  "Denny",
 ];
 
 let currentStudentIndex = 0;
