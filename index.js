@@ -50,7 +50,6 @@ let bruktTemaer = [];
 const elever = [
   "Tobias",
   "Oskar",
-  "Lukas",
   "Andreas",
   "Erik",
   "Lars",
